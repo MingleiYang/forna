@@ -4,7 +4,7 @@
     <img src="https://raw.githubusercontent.com/pkerpedjiev/forna/master/htdocs/img/favicon-192x192.png" alt="forna logo" title="forna logo" width="150" align="right" />
 </div>
 
-<b>This is a fork</b>, which contains some extra inline styling, allowing the forna-generated SVG to be downloaded and displayed correctly in a wide range of software.
+<b>This is a fork</b>, which contains some extra inline styling, allowing the forna-generated SVG to be downloaded and displayed correctly in a wide range of software. Not all fornac features have been covered with inline styles.
 
 ### Overview ###
 
