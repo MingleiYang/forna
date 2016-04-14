@@ -263,6 +263,8 @@ function FornaContainer(h, f) {
 				scale = d3.scale.linear().range(["#98df8a", "#dbdb8d", "#ff9896"]).interpolate(d3.interpolateLab).domain([1, 1 + (b.rna.rnaLength - 1) / 2, b.rna.rnaLength]);
 				return scale(b.num)
 			}) : "custom" == e && (scale = d3.scale.linear().interpolate(d3.interpolateLab).domain(d.customColors.domain).range(d.customColors.range), g.style("fill", function(e) {
+				
+				// this bit ensures we don't get black dots for unreactive nucs
 				if (d.customColors.color_values[""][e.num] == null) {
 					return "white";
 				}
