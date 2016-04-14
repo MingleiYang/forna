@@ -575,32 +575,31 @@ function FornaContainer(h, f) {
 		};
 		xlink.on("click", link_click);
 		e.select("circle");
+
+		// Radius reduced so that the outline node is invisible - hack
 		gnodes_enter.filter(function(b) {
 			return "nucleotide" == b.node_type || "label" == b.node_type || "protein" == b.node_type
 		}).append("svg:circle").attr("class", "outline_node").attr("r", function(b) {
-			return b.radius + 1
+			return b.radius
 		});
-		b = gnodes_enter.append("svg:circle")
-			.attr("r", function(b) {
+
+		// This styles the main nucleotide circles
+		b = gnodes_enter
+			.append("svg:circle")
+			.attr("class", "node")
+			.classed("label", function(b) {
+				return "label" == b.node_type
+			}).attr("r", function(b) {
 				return "middle" == b.node_type ? 0 : b.radius
-			})
-			.attr("node_type", function(b) {
+			}).attr("node_type", function(b) {
 				return b.node_type
 			})
 			.style({
 				"stroke": "#ccc",
 				"stroke-width": "1px",
 				"opacity": "1",
-				"fill": "white"
-			})
-			.style(function(b) {
-				return "label" == b.node_type ? {
-					"stroke": "transparent",
-				    "stroke-width": "0",
-				    "fill": "white"
-				} : {}
-			})
-
+				"fill": "#fff"
+			});
 		gnodes_enter.append("text").text(function(b) {
 			return b.name
 		}).attr("text-anchor", "middle").attr("font-size", 8).attr("font-weight", "bold").attr("y", 2.5).attr("class", "node-label").attr("label_type", function(b) {
