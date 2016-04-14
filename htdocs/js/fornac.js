@@ -560,13 +560,19 @@ function FornaContainer(h, f) {
 		xlink = d.displayFakeLinks ? b : z.selectAll("[link_type=real],[link_type=pseudoknot],[link_type=protein_chain],[link_type=chain_chain],[link_type=label_link],[link_type=backbone],[link_type=basepair],[link_type=fake],[link_type=intermolecule]");
 
 
-		var bb = z.selectAll("[link_type=backbone]")
-		bb.style({
+		// apply inline styles
+		z.selectAll("[link_type=backbone],[link_type=label_link]").style({
 			"stroke": "#999",
 			"stroke-opacity": "0.8",
 			"stroke-width": "2"
 		});
-		
+		z.selectAll("[link_type=basepair]").style({
+			"stroke": "red",
+			"stroke-opacity": "0.8",
+			"stroke-width": "2"
+		});
+
+
 		domain = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
 		d3.scale.category10().domain(domain);
 		var e = p.selectAll("g.gnode").data(d.graph.nodes, node_key);
