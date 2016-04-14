@@ -18,12 +18,12 @@ circle.node.label {
     fill: white;
 }
 
-circle.outline_node {
+/*circle.outline_node {
     stroke-width: 0;
     stroke: transparent;
-    /*stroke-width: 1px;
-    fill: red;*/
-}
+    stroke-width: 1px;
+    fill: red;
+}*/
 
 circle.protein {
     fill: gray;

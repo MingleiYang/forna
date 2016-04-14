@@ -263,8 +263,12 @@ function FornaContainer(h, f) {
 				scale = d3.scale.linear().range(["#98df8a", "#dbdb8d", "#ff9896"]).interpolate(d3.interpolateLab).domain([1, 1 + (b.rna.rnaLength - 1) / 2, b.rna.rnaLength]);
 				return scale(b.num)
 			}) : "custom" == e && (scale = d3.scale.linear().interpolate(d3.interpolateLab).domain(d.customColors.domain).range(d.customColors.range), g.style("fill", function(e) {
-			return "undefined" == typeof d.customColors ? "white" : d.customColors.color_values.hasOwnProperty(e.struct_name) && d.customColors.color_values[e.struct_name].hasOwnProperty(e.num) ?
-				(molecule_colors = d.customColors.color_values[e.struct_name], b(molecule_colors, e, scale)) : d.customColors.color_values.hasOwnProperty("") ? (molecule_colors = d.customColors.color_values[""], b(molecule_colors, e, scale)) : "white"
+				if (d.customColors.color_values[""][e.num] == null) {
+					return "white";
+				}
+				return "undefined" == typeof d.customColors ? "white" 
+					: d.customColors.color_values.hasOwnProperty(e.struct_name) && d.customColors.color_values[e.struct_name].hasOwnProperty(e.num) ?
+					(molecule_colors = d.customColors.color_values[e.struct_name], b(molecule_colors, e, scale)) : d.customColors.color_values.hasOwnProperty("") ? (molecule_colors = d.customColors.color_values[""], b(molecule_colors, e, scale)) : "#fff"
 		}))
 	};
 	window.addEventListener("resize", k, !1);
