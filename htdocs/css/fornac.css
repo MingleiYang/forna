@@ -5,18 +5,18 @@ svg {
   min-height: 100%;
 }
 
-circle.node {
+/*circle.node {
   stroke: #ccc;
   stroke-width: 1px;
   opacity: 1;
   fill: white;
-}
+}*/
 
-circle.node.label {
+/*circle.node.label {
     stroke: transparent;
     stroke-width: 0;
     fill: white;
-}
+}*/
 
 circle.outline_node {
     stroke-width: 1px;

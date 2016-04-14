@@ -580,13 +580,27 @@ function FornaContainer(h, f) {
 		}).append("svg:circle").attr("class", "outline_node").attr("r", function(b) {
 			return b.radius + 1
 		});
-		b = gnodes_enter.append("svg:circle").attr("class", "node").classed("label", function(b) {
-			return "label" == b.node_type
-		}).attr("r", function(b) {
-			return "middle" == b.node_type ? 0 : b.radius
-		}).attr("node_type", function(b) {
-			return b.node_type
-		});
+		b = gnodes_enter.append("svg:circle")
+			.attr("r", function(b) {
+				return "middle" == b.node_type ? 0 : b.radius
+			})
+			.attr("node_type", function(b) {
+				return b.node_type
+			})
+			.style({
+				"stroke": "#ccc",
+				"stroke-width": "1px",
+				"opacity": "1",
+				"fill": "white"
+			})
+			.style(function(b) {
+				return "label" == b.node_type ? {
+					"stroke": "transparent",
+				    "stroke-width": "0",
+				    "fill": "white"
+				} : {}
+			})
+
 		gnodes_enter.append("text").text(function(b) {
 			return b.name
 		}).attr("text-anchor", "middle").attr("font-size", 8).attr("font-weight", "bold").attr("y", 2.5).attr("class", "node-label").attr("label_type", function(b) {
