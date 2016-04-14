@@ -4,6 +4,8 @@
     <img src="https://raw.githubusercontent.com/pkerpedjiev/forna/master/htdocs/img/favicon-192x192.png" alt="forna logo" title="forna logo" width="150" align="right" />
 </div>
 
+This fork contains some extra inline styling, allowing the forna-generated SVG to be downloaded and displayed correctly in a wide range of software.
+
 ### Overview ###
 
 The ``forna`` package provides a web interface for displaying RNA secondary
